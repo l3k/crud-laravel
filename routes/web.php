@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('site'); })->name('site');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('can:usuario');
+
+Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
+
+  Route::resource('artigos', 'ArtigosController')->middleware('can:usuario');
+  Route::resource('usuarios', 'UsuariosController')->middleware('can:eAdmin');
+
+});
+
