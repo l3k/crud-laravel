@@ -20,6 +20,7 @@ Esse projeto serve como teste para um processo seletivo
 - `cp .env.example .env`
 - `composer install`
 - `npm install`
+- `npm run dev`
 - `php artisan key:generate`
 - Edite o arquivo que esta na raiz do projeto `.env` e defina os detalhes da sua conexão de banco de dados
 - `php artisan migrate`
