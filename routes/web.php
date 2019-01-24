@@ -20,7 +20,6 @@ Route::get('/admin', 'AdminController@index')->name('admin')->middleware('can:us
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
 
-  Route::resource('artigos', 'ArtigosController')->middleware('can:usuario');
   Route::resource('usuarios', 'UsuariosController')->middleware('can:eAdmin');
 
 });
